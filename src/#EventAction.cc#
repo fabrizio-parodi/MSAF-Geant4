@@ -52,6 +52,7 @@ void EventAction::EndOfEventAction(const G4Event*)
 {
   // accumulate statistics in run action
   fRunAction->AddEdep(fEdep);
+  
   auto analysisManager = G4AnalysisManager::Instance();
   analysisManager->FillH1(0,fEdep);
 }
