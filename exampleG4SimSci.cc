@@ -58,8 +58,9 @@ int main(int argc,char** argv){
   G4SteppingVerbose::UseBestUnit(precision);
 
   // Construct the default run manager
-  auto runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
+  auto runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::Serial);
 
+  
   // Detector construction
   runManager->SetUserInitialization(new DetectorConstruction());
 

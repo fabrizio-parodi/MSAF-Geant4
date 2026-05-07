@@ -62,22 +62,11 @@ void RunAction::EndOfRunAction(const G4Run* run)
 {
   G4int nofEvents = run->GetNumberOfEvent();
   if (nofEvents == 0) return;
-
   // Print
   //
-  if (IsMaster()) {
-    G4cout
-     << G4endl
-     << "--------------------End of Global Run-----------------------";
-  } else {
-    G4cout
-     << G4endl
-     << "--------------------End of Local Run------------------------";
-  }
+  G4cout << G4endl << "--------------------End of Run-----------------------";
 
-  G4cout
-    << G4endl
-    << " The run consists of " << nofEvents << G4endl;
+  G4cout << G4endl << " The run consists of " << nofEvents << G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
