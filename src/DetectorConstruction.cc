@@ -50,10 +50,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4bool checkOverlaps = true;
 
   // World
-
-  G4double sizeXY = 20*cm, sizeZ = 30*cm;
-  G4double world_sizeXY = 1.2*sizeXY;
-  G4double world_sizeZ  = 1.2*sizeZ;
+  G4double world_sizeXY = 40*cm;
+  G4double world_sizeZ  = 60*cm;
   G4Material* world_mat = nist->FindOrBuildMaterial("G4_AIR");
 
   auto solidWorld = new G4Box("World",                           // its name
@@ -72,7 +70,6 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     0,                                         // copy number
     checkOverlaps);                            // overlaps checking
   
-  //
   // Counter
 
   G4Material* shape_mat = nist->FindOrBuildMaterial("G4_Cu");

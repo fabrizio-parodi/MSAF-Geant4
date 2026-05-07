@@ -76,14 +76,13 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent){
   G4double envSizeZ = 0;
 
   if (!fWorldBox){
-    G4LogicalVolume* worldLV
-      = G4LogicalVolumeStore::GetInstance()->GetVolume("World");
+    G4LogicalVolume* worldLV = G4LogicalVolumeStore::GetInstance()->GetVolume("World");
     if ( worldLV ) fWorldBox = dynamic_cast<G4Box*>(worldLV->GetSolid());
   }
 
   if ( fWorldBox ) {
     envSizeXY = fWorldBox->GetXHalfLength()*2.;
-    envSizeZ = fWorldBox->GetZHalfLength()*2.;
+    envSizeZ  = fWorldBox->GetZHalfLength()*2.;
   } else {
     G4ExceptionDescription msg;
     msg << "World volume of box shape not found.\n";
