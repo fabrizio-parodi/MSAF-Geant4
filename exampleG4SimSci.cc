@@ -87,6 +87,7 @@ int main(int argc,char** argv){
   } else {
     // interactive mode
     UImanager->ApplyCommand("/control/execute vis.mac");
+    UImanager->ApplyCommand("/run/beamOn 1000");
     ui->SessionStart();
     delete ui;
   }
