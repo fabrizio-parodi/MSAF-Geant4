@@ -45,11 +45,6 @@
 RunAction::RunAction()
 {
 
-  // Register accumulable to the accumulable manager
-  G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
-  accumulableManager->RegisterAccumulable(fEdep);
-  accumulableManager->RegisterAccumulable(fEdep2);
-
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -59,10 +54,6 @@ void RunAction::BeginOfRunAction(const G4Run*)
   // inform the runManager to save random number seed
   G4RunManager::GetRunManager()->SetRandomNumberStore(false);
 
-  // reset accumulables to their initial values
-  G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
-  accumulableManager->Reset();
-
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -71,10 +62,6 @@ void RunAction::EndOfRunAction(const G4Run* run)
 {
   G4int nofEvents = run->GetNumberOfEvent();
   if (nofEvents == 0) return;
-
-  // Merge accumulables
-  G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
-  accumulableManager->Merge();
 
   // Print
   //
@@ -90,8 +77,7 @@ void RunAction::EndOfRunAction(const G4Run* run)
 
   G4cout
     << G4endl
-    << " The run consists of " << nofEvents << " "<< runCondition
-    << G4endl;
+    << " The run consists of " << nofEvents << G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
